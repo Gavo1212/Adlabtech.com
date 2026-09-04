@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo: Local Business Website — AdLab</title>
+<meta name="description" content="A demo landing page template for barbers, salons, cafes, gyms and yoga studios — built by AdLab.">
+<link rel="icon" type="image/png" href="logo.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
+  :root{
+    --cream:#fbf3e7; --charcoal:#241d17; --coral:#e8603c; --coral-deep:#c74b2a; --line:#e9dcc4; --muted:#6b5f4f;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{ background:var(--cream); color:var(--charcoal); font-family:'Inter',sans-serif; line-height:1.6;}
+  h1,h2,h3{ font-family:'Fraunces',serif; font-weight:700; line-height:1.1;}
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  section{padding:76px 0;}
+  @media (max-width:720px){ section{padding:50px 0;} }
+
+  .demo-bar{ background:var(--charcoal); color:#fff; font-size:13px; padding:10px 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;}
+  .demo-bar a{ color:#ffb69e; text-decoration:none; font-weight:600;}
+
+  header{ background:var(--cream); border-bottom:2px solid var(--charcoal); position:sticky; top:0; z-index:50;}
+  nav{ max-width:1080px; margin:0 auto; padding:18px 24px; display:flex; justify-content:space-between; align-items:center;}
+  .brand{ font-family:'Fraunces',serif; font-weight:700; font-size:21px; text-decoration:none;}
+  .navlinks{ display:flex; gap:26px; font-size:14px; font-weight:600;}
+  .navlinks a{ text-decoration:none; color:var(--charcoal);}
+  .cta-btn{ background:var(--coral); color:#fff; padding:12px 22px; border-radius:999px; font-weight:700; font-size:13.5px; text-decoration:none;}
+  @media (max-width:760px){ .navlinks{display:none;} }
+
+  .hero{ text-align:center; padding-top:64px;}
+  .eyebrow{ display:inline-block; font-size:12.5px; font-weight:700; color:var(--coral-deep); text-transform:uppercase; letter-spacing:0.08em; background:#fff; border:1px solid var(--line); border-radius:999px; padding:7px 16px; margin-bottom:22px;}
+  .hero h1{ font-size:clamp(34px,6vw,58px); max-width:16ch; margin:0 auto;}
+  .hero p{ margin-top:20px; color:var(--muted); font-size:17px; max-width:48ch; margin-left:auto; margin-right:auto;}
+  .hero-cta{ display:flex; gap:14px; margin-top:32px; flex-wrap:wrap; justify-content:center;}
+  .btn-outline{ border:2px solid var(--charcoal); color:var(--charcoal); padding:12px 24px; border-radius:999px; text-decoration:none; font-weight:700; font-size:14.5px;}
+
+  .hero-strip{ display:flex; gap:14px; margin-top:56px; overflow-x:auto; padding-bottom:6px;}
+  .hero-strip div{ flex:0 0 200px; aspect-ratio:4/5; border-radius:14px; background:linear-gradient(160deg,#f4d9c4,#e8b89a); display:flex; align-items:center; justify-content:center; font-size:12.5px; color:#8a5a3c; font-weight:600;}
+
+  .sec-head{ text-align:center; margin-bottom:44px;}
+  .sec-head h2{ font-size:clamp(26px,3.4vw,36px);}
+  .sec-head p{ color:var(--muted); margin-top:12px; max-width:52ch; margin-left:auto; margin-right:auto;}
+
+  .menu-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px 40px;}
+  @media (max-width:640px){ .menu-grid{grid-template-columns:1fr;} }
+  .menu-item{ display:flex; justify-content:space-between; gap:14px; padding:14px 0; border-bottom:1px dashed var(--line);}
+  .menu-item .name{ font-weight:600;}
+  .menu-item .desc{ font-size:12.5px; color:var(--muted); margin-top:3px;}
+  .menu-item .price{ font-weight:700; color:var(--coral-deep); white-space:nowrap;}
+
+  .gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+  @media (max-width:760px){ .gallery-grid{grid-template-columns:repeat(2,1fr);} }
+  .gallery-grid div{ aspect-ratio:1; border-radius:10px; background:linear-gradient(160deg,#f4d9c4,#e8b89a);}
+
+  .info-band{ background:var(--charcoal); color:#f3e6d6; border-radius:16px; padding:44px 36px; display:grid; grid-template-columns:repeat(3,1fr); gap:28px; text-align:center;}
+  @media (max-width:720px){ .info-band{grid-template-columns:1fr;} }
+  .info-band h3{ font-size:15px; color:var(--coral); margin-bottom:8px; font-family:'Inter',sans-serif; text-transform:uppercase; letter-spacing:0.05em;}
+  .info-band p{ font-size:14.5px; color:#d8c9b3;}
+
+  .contact-band{ text-align:center;}
+  .contact-band h2{ font-size:clamp(26px,3.6vw,38px);}
+  .contact-band p{ color:var(--muted); margin-top:12px; max-width:44ch; margin-left:auto; margin-right:auto;}
+  .contact-cta-row{ display:flex; gap:14px; justify-content:center; margin-top:28px; flex-wrap:wrap;}
+
+  footer{ background:var(--charcoal); color:#c9bba5; padding:30px 0; font-size:13px; text-align:center;}
+  footer a{ color:#fff; text-decoration:none; font-weight:600;}
+
+  .sticky-cta{ position:fixed; bottom:18px; right:18px; z-index:80; background:var(--coral); color:#fff; padding:13px 22px; border-radius:999px; font-weight:700; font-size:14px; text-decoration:none; box-shadow:0 10px 30px rgba(232,96,60,0.4);}
+  @media (max-width:600px){ .sticky-cta{left:18px; right:18px; text-align:center;} }
+</style>
+</head>
+<body>
+
+<div class="demo-bar">
+  <span>👀 This is a demo template by AdLab — not a real business.</span>
+  <a href="index.html">← Back to AdLab</a>
+</div>
+
+<header>
+  <nav>
+    <a href="#" class="brand">The Local Co.</a>
+    <div class="navlinks">
+      <a href="#menu">Menu / Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit</a>
+    </div>
+    <a href="#" target="_blank" rel="noopener" class="cta-btn" id="waTop">Book Now</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Barbershop · Café · Studio — swap for your business</div>
+    <h1>A place your regulars will love to come back to.</h1>
+    <p>A template landing page for barbers, salons, cafés, gyms, and yoga studios — built to show off your space and make booking a one-tap decision.</p>
+    <div class="hero-cta">
+      <a href="#" target="_blank" rel="noopener" class="cta-btn" id="waHero">Book Now →</a>
+      <a href="#menu" class="btn-outline">View Menu / Services</a>
+    </div>
+    <div class="hero-strip">
+      <div>Photo 1</div><div>Photo 2</div><div>Photo 3</div><div>Photo 4</div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" style="background:#fff;">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Menu &amp; Services</h2>
+      <p>Replace with your real offerings and prices — works for a menu, a service list, or class pricing.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="name">Signature Service</div><div class="desc">Short description of what's included</div></div><div class="price">₦8,000</div></div>
+      <div class="menu-item"><div><div class="name">Classic Package</div><div class="desc">Short description of what's included</div></div><div class="price">₦5,000</div></div>
+      <div class="menu-item"><div><div class="name">Premium Experience</div><div class="desc">Short description of what's included</div></div><div class="price">₦12,000</div></div>
+      <div class="menu-item"><div><div class="name">Add-on / Extra</div><div class="desc">Short description of what's included</div></div><div class="price">₦2,000</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>A look inside.</h2>
+      <p>Swap these for real photos of your space, work, or products.</p>
+    </div>
+    <div class="gallery-grid">
+      <div></div><div></div><div></div><div></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" style="background:#fff;">
+  <div class="wrap">
+    <div class="info-band">
+      <div><h3>Hours</h3><p>Mon–Sat: 9am – 8pm<br>Sun: 12pm – 6pm</p></div>
+      <div><h3>Location</h3><p>Placeholder address<br>Lagos, Nigeria</p></div>
+      <div><h3>Contact</h3><p>Placeholder phone<br>Placeholder email</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="contact-band">
+      <h2>Ready to book?</h2>
+      <p>Reach out on WhatsApp and we'll get you booked in.</p>
+      <div class="contact-cta-row">
+        <a href="#" target="_blank" rel="noopener" class="cta-btn" id="waContact">Book on WhatsApp →</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">This is a demo landing page built by <a href="index.html">AdLab</a>. Not a real business.</div>
+</footer>
+
+<a href="#" target="_blank" rel="noopener" class="sticky-cta" id="waSticky">Make This Yours →</a>
+
+<script>
+  const msg = encodeURIComponent("Hi, I saw the Local Business demo website and I'd like something like this for my business.");
+  const link = `https://wa.me/2349015262126?text=${msg}`;
+  ['waTop','waHero','waContact','waSticky'].forEach(id => { document.getElementById(id).href = link; });
+</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo: Personal Website — AdLab</title>
+<meta name="description" content="A demo personal website template for freelancers — built by AdLab.">
+<link rel="icon" type="image/png" href="logo.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+  :root{
+    --bg:#fafafa; --ink:#111111; --muted:#6b6b6b; --line:#e6e6e6; --lime:#c6ff3d; --lime-deep:#8fbf1f;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{ background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.6;}
+  h1,h2,h3{ font-family:'Space Grotesk',sans-serif; font-weight:700; line-height:1.1; letter-spacing:-0.01em;}
+  a{color:inherit;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+  section{padding:70px 0;}
+  @media (max-width:720px){ section{padding:46px 0;} }
+
+  .demo-bar{ background:var(--ink); color:#fff; font-size:13px; padding:10px 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;}
+  .demo-bar a{ color:var(--lime); text-decoration:none; font-weight:600;}
+
+  header{ border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--bg); z-index:50;}
+  nav{ max-width:920px; margin:0 auto; padding:20px 24px; display:flex; justify-content:space-between; align-items:center;}
+  .brand{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; text-decoration:none;}
+  .navlinks{ display:flex; gap:26px; font-size:14px; font-weight:500;}
+  .navlinks a{ text-decoration:none; color:var(--muted);}
+  .cta-btn{ background:var(--ink); color:#fff; padding:11px 20px; border-radius:999px; font-weight:600; font-size:13px; text-decoration:none;}
+  @media (max-width:700px){ .navlinks{display:none;} }
+
+  .hero{ padding-top:56px;}
+  .eyebrow{ font-size:13px; color:var(--muted); margin-bottom:16px;}
+  .eyebrow span{ background:var(--lime); padding:2px 8px; border-radius:4px; color:#1a2600; font-weight:700;}
+  .hero h1{ font-size:clamp(34px,6.5vw,64px); max-width:14ch;}
+  .hero p{ margin-top:22px; color:var(--muted); font-size:17px; max-width:52ch;}
+  .hero-cta{ display:flex; gap:14px; margin-top:30px; flex-wrap:wrap;}
+  .btn-outline{ border:1.5px solid var(--ink); padding:12px 22px; border-radius:999px; text-decoration:none; font-weight:600; font-size:14px;}
+  .btn-lime{ background:var(--lime); color:#1a2600; padding:12px 22px; border-radius:999px; text-decoration:none; font-weight:700; font-size:14px;}
+
+  .tags-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:48px;}
+  .tag{ border:1px solid var(--line); border-radius:999px; padding:8px 16px; font-size:13px; color:var(--muted);}
+
+  .sec-head{ margin-bottom:36px;}
+  .sec-head h2{ font-size:clamp(24px,3.2vw,32px);}
+  .sec-head p{ color:var(--muted); margin-top:10px; max-width:56ch;}
+
+  .work-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+  @media (max-width:640px){ .work-grid{grid-template-columns:1fr;} }
+  .work-card{ border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff;}
+  .work-thumb{ aspect-ratio:16/10; background:linear-gradient(150deg,#eef2e2,#dbe8bd); display:flex; align-items:center; justify-content:center; font-size:12.5px; color:#5c6b3e; font-weight:600;}
+  .work-body{ padding:18px 20px 22px;}
+  .work-title{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16.5px;}
+  .work-desc{ font-size:13.5px; color:var(--muted); margin-top:6px;}
+
+  .about-block p{ color:var(--muted); font-size:15.5px; max-width:60ch; margin-top:14px;}
+
+  .contact-band{ background:var(--ink); color:#fff; border-radius:18px; padding:48px 36px; text-align:center;}
+  .contact-band h2{ font-size:clamp(24px,3.4vw,34px);}
+  .contact-band p{ color:#c9c9c9; margin-top:12px; max-width:46ch; margin-left:auto; margin-right:auto;}
+  .contact-cta-row{ display:flex; gap:14px; justify-content:center; margin-top:26px; flex-wrap:wrap;}
+
+  footer{ border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:var(--muted); text-align:center;}
+  footer a{ color:var(--ink); text-decoration:none; font-weight:600;}
+
+  .sticky-cta{ position:fixed; bottom:18px; right:18px; z-index:80; background:var(--lime); color:#1a2600; padding:13px 22px; border-radius:999px; font-weight:700; font-size:14px; text-decoration:none; box-shadow:0 10px 30px rgba(198,255,61,0.4);}
+  @media (max-width:600px){ .sticky-cta{left:18px; right:18px; text-align:center;} }
+</style>
+</head>
+<body>
+
+<div class="demo-bar">
+  <span>👀 This is a demo template by AdLab — not a real person.</span>
+  <a href="index.html">← Back to AdLab</a>
+</div>
+
+<header>
+  <nav>
+    <a href="#" class="brand">Tomiwa Bello</a>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#" target="_blank" rel="noopener" class="cta-btn" id="waTop">Let's Talk</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span>Available for work</span></div>
+    <h1>Product designer &amp; freelance developer.</h1>
+    <p>A template personal website for freelancers and independent professionals — built to look sharp on a phone and make it easy for someone to reach out.</p>
+    <div class="hero-cta">
+      <a href="#" target="_blank" rel="noopener" class="btn-lime" id="waHero">Let's Talk →</a>
+      <a href="#work" class="btn-outline">See Work</a>
+    </div>
+    <div class="tags-row">
+      <span class="tag">Web Design</span><span class="tag">Branding</span><span class="tag">Front-End Dev</span><span class="tag">Content</span>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Selected work</h2>
+      <p>Replace these cards with real projects, screenshots, and short write-ups once you have them.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card"><div class="work-thumb">Project screenshot</div><div class="work-body"><div class="work-title">Project One</div><div class="work-desc">A short one-line description of the project and outcome.</div></div></div>
+      <div class="work-card"><div class="work-thumb">Project screenshot</div><div class="work-body"><div class="work-title">Project Two</div><div class="work-desc">A short one-line description of the project and outcome.</div></div></div>
+      <div class="work-card"><div class="work-thumb">Project screenshot</div><div class="work-body"><div class="work-title">Project Three</div><div class="work-desc">A short one-line description of the project and outcome.</div></div></div>
+      <div class="work-card"><div class="work-thumb">Project screenshot</div><div class="work-body"><div class="work-title">Project Four</div><div class="work-desc">A short one-line description of the project and outcome.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about-block">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>About</h2>
+    </div>
+    <p>Placeholder bio — a few sentences about your background, what you do, and the kind of work or clients you enjoy most. Keep it conversational; this is the section people read to decide if they like you before they reach out.</p>
+    <p>Add a second paragraph here about your process, values, or what makes you different, if it's useful.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-band">
+      <h2>Got a project in mind?</h2>
+      <p>Send a message on WhatsApp and let's talk about it.</p>
+      <div class="contact-cta-row">
+        <a href="#" target="_blank" rel="noopener" class="btn-lime" id="waContact">Message on WhatsApp →</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">This is a demo landing page built by <a href="index.html">AdLab</a>. Not a real person.</div>
+</footer>
+
+<a href="#" target="_blank" rel="noopener" class="sticky-cta" id="waSticky">Make This Yours →</a>
+
+<script>
+  const msg = encodeURIComponent("Hi, I saw the Personal Website demo and I'd like something like this for myself.");
+  const link = `https://wa.me/2349015262126?text=${msg}`;
+  ['waTop','waHero','waContact','waSticky'].forEach(id => { document.getElementById(id).href = link; });
+</script>
+</body>
+</html>
